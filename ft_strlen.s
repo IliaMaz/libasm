@@ -6,13 +6,12 @@ _ft_strlen:
 
 loop:
     /**
-        * Load the current char from x0 into w2 and increments x0 by 1.
-        * Initially tried to load into x2 but there is a size mismatch,
-        * the w registers are 8 bits and as such are perfect for normal
-        * chars.
-        *
-        * Note that x0 is the pointer and [x0] is the dereference of that
-        * pointer
+     * Load the current char from x0 into w2 and increments x0 by 1.
+     * Initially tried to load into x2 but there is a size mismatch,
+     * the w registers are 32 bits
+     *
+     * Note that x0 is the pointer and [x0] is the dereference of that
+     * pointer
     **/
     ldrb w2, [x0], #1
     
@@ -26,8 +25,8 @@ loop:
     beq terminate ; branch equal -> jump to terminate
 
     /**
-        * Increment the character counter, the following is the syntax
-        * <source register> <destination register> <value or register>
+     * Increment the character counter, the following is the syntax
+     * <source register> <destination register> <value or register>
     **/
     add x1, x1, #1
 
