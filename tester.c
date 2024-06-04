@@ -1,9 +1,20 @@
-#include <stdio.h>
-#include <unistd.h>
+#include "tester.h"
 
-extern size_t ft_strlen(char *);
+void test_ft_strlen() {
+    char * strings[] = {
+        "Hello, World!",
+        "Hello, World! ",
+        " Hello, World!",
+        "",
+        "char *",
+        NULL
+    };
+
+    for (size_t i = 0; strings[i]; ++i) {
+        assert(ft_strlen(strings[i]) == strlen(strings[i]));
+    }
+}
 
 int main() {
-  printf("%zu\n", ft_strlen(""));
-  printf("%zu\n", ft_strlen("char *"));
+    test_ft_strlen();
 }
